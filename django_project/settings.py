@@ -115,6 +115,8 @@ ROOT_URLCONF = 'django_project.urls'
 
 REST_AUTH = {
     'REGISTER_SERIALIZER': 'accounts.serializers.CustomRegisterSerializer',
+    'PASSWORD_RESET_SERIALIZER': 'django_project.serializers.PasswordResetSerializer',
+    'PASSWORD_RESET_USE_SITES_DOMAIN': True,
 }
 
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
@@ -125,7 +127,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -199,3 +201,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+CLIENT_BASE_URL = "http://localhost:5173"
