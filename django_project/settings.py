@@ -78,7 +78,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         "rest_framework.authentication.SessionAuthentication",
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
 }
 
 SIMPLE_JWT = {
@@ -112,6 +112,15 @@ SIMPLE_JWT = {
 }
 
 ROOT_URLCONF = 'django_project.urls'
+
+REST_AUTH = {
+    'REGISTER_SERIALIZER': 'accounts.serializers.CustomRegisterSerializer',
+}
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
 
 TEMPLATES = [
     {
